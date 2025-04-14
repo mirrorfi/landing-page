@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { InteractiveGridPattern } from "./magicui/interactive-grid-pattern";
 
 function ElegantShape({
   className,
@@ -94,6 +95,19 @@ export default function HeroGeometric({
 
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
+      {/* Interactive Grid Background */}
+      <div className="absolute inset-0 z-10">
+        <InteractiveGridPattern
+          width={65}
+          height={65}
+          className={cn(
+            "[mask-image:radial-gradient(700px_circle_at_center,white,transparent)]",
+            "skew-y-12 opacity-20"
+          )}
+          squaresClassName="stroke-white/20 [&:hover]:fill-white/10"
+        />
+      </div>
+
       {/* Multi-layered background gradients */}
       <div className="absolute inset-0">
         {/* Base gradient layer */}
@@ -123,7 +137,7 @@ export default function HeroGeometric({
           height={140}
           rotate={12}
           gradient="from-mirrorfi-cyan/[0.25]"
-          className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%]"
+          className="left-[-10%] md:left-[-5%] top-[15%] md:top-[20%] z-20"
         />
 
         <ElegantShape
@@ -132,7 +146,7 @@ export default function HeroGeometric({
           height={120}
           rotate={-15}
           gradient="from-mirrorfi-blue/[0.25]"
-          className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%]"
+          className="right-[-5%] md:right-[0%] top-[70%] md:top-[75%] z-20"
         />
 
         <ElegantShape
@@ -141,7 +155,7 @@ export default function HeroGeometric({
           height={80}
           rotate={-8}
           gradient="from-mirrorfi-cyan/[0.25]"
-          className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
+          className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%] z-20"
         />
 
         <ElegantShape
@@ -150,7 +164,7 @@ export default function HeroGeometric({
           height={60}
           rotate={20}
           gradient="from-mirrorfi-darkblue/[0.25]"
-          className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
+          className="right-[15%] md:right-[20%] top-[10%] md:top-[15%] z-20"
         />
 
         <ElegantShape
@@ -159,7 +173,7 @@ export default function HeroGeometric({
           height={40}
           rotate={-25}
           gradient="from-mirrorfi-blue/[0.25]"
-          className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
+          className="left-[20%] md:left-[25%] top-[5%] md:top-[10%] z-20"
         />
       </div>
 
@@ -170,7 +184,7 @@ export default function HeroGeometric({
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] mb-8 md:mb-12"
           >
             <Image
               src="MirrorFi-Logo-Blue.svg"
