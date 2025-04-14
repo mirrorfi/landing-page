@@ -4,6 +4,7 @@ import HeroGeometric from "@/components/HeroGeometric";
 import StrategyFlowDemo from "@/components/StrategyFlowDemo";
 import SolutionSection from "@/components/SolutionSection";
 import VisionSection from "@/components/VisionSection";
+import Footer from "@/components/Footer";
 
 export default function Page() {
   return (
@@ -41,6 +42,7 @@ export default function Page() {
         </div>
         <SolutionSection />
         <VisionSection />
+        <Footer />
       </div>
     </div>
   );
