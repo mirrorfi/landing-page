@@ -93,8 +93,28 @@ export default function HeroGeometric({
   };
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black">
-      <div className="absolute inset-0 bg-gradient-to-br from-[#51D6FF]/[0.05] via-transparent to-[#017AFD]/[0.05] blur-3xl" />
+    <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#030303]">
+      {/* Multi-layered background gradients */}
+      <div className="absolute inset-0">
+        {/* Base gradient layer */}
+        <div className="absolute inset-0 bg-gradient-to-br from-mirrorfi-darkblue/20 via-[#030303] to-mirrorfi-blue/20" />
+
+        {/* Accent gradient layers */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-mirrorfi-cyan/5 via-transparent to-mirrorfi-blue/5" />
+        <div className="absolute inset-0 bg-gradient-to-bl from-mirrorfi-darkblue/5 via-transparent to-mirrorfi-cyan/5" />
+
+        {/* Center glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(81,214,255,0.08),transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(1,122,253,0.05),transparent_70%)]" />
+      </div>
+
+      {/* Animated glow orbs */}
+      <div className="absolute top-[-20%] -left-[10%] w-[40%] h-[40%]">
+        <div className="absolute inset-0 bg-gradient-to-r from-mirrorfi-cyan/10 to-mirrorfi-blue/10 blur-[120px] rounded-full animate-pulse" />
+      </div>
+      <div className="absolute bottom-[-10%] -right-[5%] w-[35%] h-[35%]">
+        <div className="absolute inset-0 bg-gradient-to-l from-mirrorfi-blue/10 to-mirrorfi-darkblue/10 blur-[100px] rounded-full animate-pulse" />
+      </div>
 
       <div className="absolute inset-0 overflow-hidden">
         <ElegantShape
@@ -158,7 +178,7 @@ export default function HeroGeometric({
               width={18}
               height={18}
             />
-            <span className="text-sm text-white/60 tracking-wide font-[Univa Nova]">
+            <span className="text-sm text-white/60 tracking-wide font-univa">
               {badge}
             </span>
           </motion.div>
@@ -195,7 +215,8 @@ export default function HeroGeometric({
         </div>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-transparent to-[#030303]/80 pointer-events-none" />
+      {/* Bottom gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#030303]/50 to-transparent pointer-events-none" />
     </div>
   );
 }
