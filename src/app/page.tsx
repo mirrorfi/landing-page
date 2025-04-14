@@ -2,6 +2,8 @@
 
 import HeroGeometric from "@/components/HeroGeometric";
 import StrategyFlowDemo from "@/components/StrategyFlowDemo";
+import SolutionSection from "@/components/SolutionSection";
+import VisionSection from "@/components/VisionSection";
 
 export default function Page() {
   return (
@@ -30,6 +32,14 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <div className="relative">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-[#030303] to-transparent" />
+          <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#030303] to-transparent" />
+        </div>
+        <SolutionSection />
+        <VisionSection />
+      </div>
     </div>
   );
 }
