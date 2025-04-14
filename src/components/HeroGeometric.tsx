@@ -73,7 +73,7 @@ function ElegantShape({
 
 export default function HeroGeometric({
   badge = "MirrorFi",
-  title1 = "Mirror Strategies",
+  title1 = "Earn Yields",
   title2 = "With One Click",
 }: {
   badge?: string;
@@ -102,7 +102,7 @@ export default function HeroGeometric({
           height={65}
           className={cn(
             "[mask-image:radial-gradient(700px_circle_at_center,white,transparent)]",
-            "skew-y-12 opacity-20"
+            "skew-y-12 opacity-10"
           )}
           squaresClassName="stroke-white/20 [&:hover]:fill-white/10"
         />
@@ -177,7 +177,7 @@ export default function HeroGeometric({
         />
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 md:px-6">
+      <div className="relative z-20 container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             custom={0}
@@ -203,7 +203,7 @@ export default function HeroGeometric({
             initial="hidden"
             animate="visible"
           >
-            <h1 className="text-4xl sm:text-6xl md:text-8xl mb-6 md:mb-8 tracking-tight">
+            <h1 className="text-4xl sm:text-6xl md :text-8xl mb-6 md:mb-8 tracking-tight">
               <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80 font-satoshi">
                 {title1}
               </span>
@@ -221,9 +221,9 @@ export default function HeroGeometric({
             animate="visible"
           >
             <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed tracking-wide max-w-xl mx-auto px-4 font-univa">
-              Combining Social Alpha Calls and Yield Earning to provide an
-              intuitive platform to share sophisticated Yield Farming
-              Strategies.
+              Social yield-strategy sharing platform where users can share their
+              yield strategies and users can execute the same position in one
+              click
             </p>
           </motion.div>
         </div>
