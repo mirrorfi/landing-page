@@ -218,15 +218,15 @@ export default function StrategyFlowDemo() {
           fitViewOptions={{ padding: 0.2 }}
         >
           <Background
-            color="#ffffff"
-            variant={BackgroundVariant.Dots}
+            color="#017AFD"
+            variant={BackgroundVariant.Cross}
             gap={24}
             size={1}
-            className="opacity-[0.02]"
+            className="opacity-40"
           />
           <ZoomSlider
             position="top-right"
-            className="bg-white/10 rounded-full text-white"
+            className="bg-blue-500/20 rounded-full text-blue-300"
           />
         </ReactFlow>
       </div>
