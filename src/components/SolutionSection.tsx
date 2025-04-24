@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { Globe } from "./magicui/globe";
 
 interface FeatureProps {
   title: string;
@@ -122,6 +123,7 @@ export default function SolutionSection() {
           </div>
         </div>
       </div>
+      <Globe className="hidden md:block absolute top-1/2 opacity-15" />
     </section>
   );
 }
