@@ -14,6 +14,7 @@ function FooterLink({ href, children }: FooterLinkProps) {
     <a
       href={href}
       className="text-white/60 hover:text-white transition-colors duration-200 font-univa"
+      target="_blank"
     >
       {children}
     </a>
@@ -46,7 +47,7 @@ function NewsletterForm() {
           "font-satoshi"
         )}
       >
-        Subscribe
+        Join Waitlist
       </button>
     </form>
   );
@@ -56,12 +57,12 @@ export default function Footer() {
   const staggerDelay = 0.1;
 
   return (
-    <footer className="w-full py-16 relative overflow-hidden">
+    <footer className="w-full py-12 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/60 to-black" />
 
       {/* Content */}
       <div className="container mx-auto px-4 relative">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+        <div className="flex justify-between mb-12">
           {/* Company Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -77,63 +78,21 @@ export default function Footer() {
               height={30}
               className="mb-6"
             />
-            <p className="text-white/60 font-univa mb-6">
+            <p className="text-white/60 font-univa mb-6 max-w-2/3">
               The premier social yield farming platform on Solana. Build, share,
               and mirror successful DeFi strategies.
             </p>
             <div className="flex gap-4">
-              <FooterLink href="#">
+              <FooterLink href="https://x.com/mirrorfi_xyz">
                 <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors">
                   <i className="fab fa-twitter text-lg" />
                 </div>
               </FooterLink>
-              <FooterLink href="#">
-                <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors">
-                  <i className="fab fa-discord text-lg" />
-                </div>
-              </FooterLink>
-              <FooterLink href="#">
+              <FooterLink href="https://github.com/mirrorfi">
                 <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition-colors">
                   <i className="fab fa-github text-lg" />
                 </div>
               </FooterLink>
-            </div>
-          </motion.div>
-
-          {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: staggerDelay }}
-            viewport={{ once: true }}
-            className="md:col-span-2"
-          >
-            <h3 className="text-white font-satoshi font-medium mb-4">
-              Platform
-            </h3>
-            <div className="space-y-3 flex flex-col">
-              <FooterLink href="#">Features</FooterLink>
-              <FooterLink href="#">Documentation</FooterLink>
-              <FooterLink href="#">Developers</FooterLink>
-              <FooterLink href="#">Pricing</FooterLink>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: staggerDelay * 2 }}
-            viewport={{ once: true }}
-            className="md:col-span-2"
-          >
-            <h3 className="text-white font-satoshi font-medium mb-4">
-              Company
-            </h3>
-            <div className="space-y-3 flex flex-col">
-              <FooterLink href="#">About</FooterLink>
-              <FooterLink href="#">Careers</FooterLink>
-              <FooterLink href="#">Blog</FooterLink>
-              <FooterLink href="#">Press Kit</FooterLink>
             </div>
           </motion.div>
 
