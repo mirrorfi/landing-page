@@ -62,7 +62,7 @@ export default function Footer() {
 
       {/* Content */}
       <div className="container mx-auto px-4 relative">
-        <div className="flex justify-between mb-12">
+        <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 justify-between mb-12">
           {/* Company Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -115,15 +115,10 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10">
+        <div className="pt-6 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-white/40 font-univa text-sm">
               © 2025 MirrorFi. All rights reserved.
-            </div>
-            <div className="flex gap-6">
-              <FooterLink href="#">Terms</FooterLink>
-              <FooterLink href="#">Privacy</FooterLink>
-              <FooterLink href="#">Security</FooterLink>
             </div>
           </div>
         </div>
