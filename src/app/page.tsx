@@ -25,7 +25,7 @@ export default function Page() {
             with expert yield farmers, validate strategies through our platform,
             and automatically mirror their successful approaches.
           </p>
-          <div className="lg:mx-28">
+          <div className="lg:mx-10">
             <StrategyFlowDemo />
           </div>
           <div className="mt-12 text-center">
