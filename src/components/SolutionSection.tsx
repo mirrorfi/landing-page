@@ -60,7 +60,7 @@ export default function SolutionSection() {
           </span>
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20 mx-auto">
+        <div className="flex flex-col space-y-20 md:space-y-0 md:flex-row justify-evenly space-x-8">
           {/* For Experts */}
           <div className="relative">
             <motion.div
