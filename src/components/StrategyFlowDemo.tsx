@@ -202,8 +202,8 @@ const initialEdges: Edge[] = [
 ];
 
 export default function StrategyFlowDemo() {
-  const [nodes, , onNodesChange] = useNodesState<CustomNode>(initialNodes);
-  const [edges, , onEdgesChange] = useEdgesState(initialEdges);
+  const [nodes] = useNodesState<CustomNode>(initialNodes);
+  const [edges] = useEdgesState(initialEdges);
 
   return (
     <div className="rounded-2xl border border-white/10 overflow-hidden bg-black/80">
@@ -211,11 +211,12 @@ export default function StrategyFlowDemo() {
         <ReactFlow
           nodes={nodes}
           edges={edges}
-          onNodesChange={onNodesChange}
-          onEdgesChange={onEdgesChange}
           nodeTypes={nodeTypes}
           fitView
           fitViewOptions={{ padding: 0.2 }}
+          panOnScroll={false}
+          zoomOnScroll={false}
+          preventScrolling={false}
         >
           <Background
             color="#017AFD"
