@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { InteractiveGridPattern } from "./magicui/interactive-grid-pattern";
+import { ShimmerButton } from "./magicui/shimmer-button";
 
 function ElegantShape({
   className,
@@ -227,6 +228,14 @@ export default function HeroGeometric({
             </p>
           </motion.div>
         </div>
+        <motion.div
+          custom={3}
+          variants={fadeUpVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <ShimmerButton className="mx-auto">Join Waitlist</ShimmerButton>
+        </motion.div>
       </div>
 
       {/* Bottom gradient overlay */}
