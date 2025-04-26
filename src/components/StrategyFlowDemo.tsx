@@ -16,12 +16,13 @@ import {
 import { cn } from "@/lib/utils";
 import "@xyflow/react/dist/style.css";
 import { ZoomSlider } from "./zoom-slider";
+import { Coins, Database, Wallet, CreditCard, BarChart } from "lucide-react";
 
 interface CustomNodeData extends Record<string, unknown> {
   label: string;
-  description: string;
+  description?: string;
   tooltip?: string;
-  type?: "start" | "protocol" | "conditional" | "end";
+  type?: "token" | "protocol";
 }
 
 type CustomNode = Node<CustomNodeData>;
@@ -29,33 +30,22 @@ type CustomNode = Node<CustomNodeData>;
 function CustomNode({ data }: { data: CustomNodeData }) {
   const [showTooltip, setShowTooltip] = useState(false);
 
-  const getBgColor = () => {
-    switch (data.type) {
-      case "start":
-        return "bg-gradient-to-br from-mirrorfi-blue/20 to-mirrorfi-blue/5";
-      case "protocol":
-        return "bg-gradient-to-br from-mirrorfi-cyan/20 to-mirrorfi-cyan/5";
-      case "conditional":
-        return "bg-gradient-to-br from-purple-500/20 to-purple-500/5";
-      case "end":
-        return "bg-gradient-to-br from-mirrorfi-darkblue/20 to-mirrorfi-darkblue/5";
+  const getNodeIcon = () => {
+    switch (data.label) {
+      case "SOL":
+        return <Coins size={24} className="text-green-400" />;
+      case "JITO SOL":
+        return <Coins size={24} className="text-green-400" />;
+      case "JUP SOL":
+        return <Coins size={24} className="text-green-400" />;
+      case "Kamino":
+        return <Database size={24} className="text-green-400" />;
+      case "USDC":
+        return <CreditCard size={24} className="text-green-400" />;
+      case "Drift Vault":
+        return <Wallet size={24} className="text-green-400" />;
       default:
-        return "bg-white/5";
-    }
-  };
-
-  const getBorderColor = () => {
-    switch (data.type) {
-      case "start":
-        return "border-mirrorfi-blue/30";
-      case "protocol":
-        return "border-mirrorfi-cyan/30";
-      case "conditional":
-        return "border-purple-500/30";
-      case "end":
-        return "border-mirrorfi-darkblue/30";
-      default:
-        return "border-white/30";
+        return <BarChart size={24} className="text-green-400" />;
     }
   };
 
@@ -67,12 +57,13 @@ function CustomNode({ data }: { data: CustomNodeData }) {
     >
       <div
         className={cn(
-          "p-4 border-2 rounded-xl w-[250px]",
-          getBgColor(),
-          getBorderColor(),
+          "p-4 border-2 rounded-xl w-[180px]",
+          "bg-gradient-to-br from-mirrorfi-blue/20 to-mirrorfi-blue/5",
+          "border-mirrorfi-blue/30",
           "shadow-[0_8px_32px_0_rgba(255,255,255,0.1)]",
           "transition-all duration-200",
-          "hover:scale-105"
+          "hover:scale-105",
+          "flex items-center"
         )}
       >
         <Handle
@@ -80,11 +71,9 @@ function CustomNode({ data }: { data: CustomNodeData }) {
           position={Position.Left}
           className="!bg-white/30"
         />
-        <div className="text-white font-satoshi font-medium mb-1 subpixel-antialiased">
+        <div className="mr-3">{getNodeIcon()}</div>
+        <div className="text-white font-satoshi font-medium subpixel-antialiased">
           {data.label}
-        </div>
-        <div className="text-white/80 text-sm font-univa subpixel-antialiased">
-          {data.description}
         </div>
         <Handle
           type="source"
@@ -107,57 +96,62 @@ const nodeTypes: NodeTypes = {
 
 const initialNodes: CustomNode[] = [
   {
-    id: "deposit",
-    position: { x: 100, y: 100 },
+    id: "sol",
+    position: { x: 100, y: 150 },
     data: {
-      label: "Deposit SOL",
-      description: "Initial SOL deposit",
-      tooltip: "Start with depositing SOL to begin the strategy",
-      type: "start",
+      label: "SOL",
+      tooltip: "Starting SOL token",
+      type: "token",
     },
     type: "custom",
   },
   {
-    id: "sanctum",
-    position: { x: 400, y: 0 },
+    id: "jito_sol",
+    position: { x: 400, y: 50 },
     data: {
-      label: "Stake via Sanctum",
-      description: "60% of funds",
-      tooltip: "Stake 60% of deposited SOL through Sanctum for stable yields",
+      label: "JITO SOL",
+      tooltip: "JITO staked SOL",
+      type: "token",
+    },
+    type: "custom",
+  },
+  {
+    id: "jup_sol",
+    position: { x: 400, y: 250 },
+    data: {
+      label: "JUP SOL",
+      tooltip: "Jupiter staked SOL",
+      type: "token",
+    },
+    type: "custom",
+  },
+  {
+    id: "kamino",
+    position: { x: 700, y: 150 },
+    data: {
+      label: "Kamino",
+      tooltip: "Kamino lending protocol",
       type: "protocol",
     },
     type: "custom",
   },
   {
-    id: "jupiter",
-    position: { x: 400, y: 200 },
+    id: "usdc",
+    position: { x: 950, y: 150 },
     data: {
-      label: "Jupiter Swap",
-      description: "40% of funds",
-      tooltip: "Swap 40% of SOL to USDC for liquidity provision",
+      label: "USDC",
+      tooltip: "USDC stablecoin",
+      type: "token",
+    },
+    type: "custom",
+  },
+  {
+    id: "drift",
+    position: { x: 1200, y: 150 },
+    data: {
+      label: "Drift Vault",
+      tooltip: "Drift protocol vault",
       type: "protocol",
-    },
-    type: "custom",
-  },
-  {
-    id: "conditional",
-    position: { x: 700, y: 100 },
-    data: {
-      label: "APR Check",
-      description: "Evaluate yields",
-      tooltip: "Auto-rebalance if APR difference > 5%",
-      type: "conditional",
-    },
-    type: "custom",
-  },
-  {
-    id: "yield",
-    position: { x: 1000, y: 100 },
-    data: {
-      label: "Yield Distribution",
-      description: "Receive in preferred token",
-      tooltip: "Convert and receive yields in your chosen token",
-      type: "end",
     },
     type: "custom",
   },
@@ -165,37 +159,63 @@ const initialNodes: CustomNode[] = [
 
 const initialEdges: Edge[] = [
   {
-    id: "deposit-sanctum",
-    source: "deposit",
-    target: "sanctum",
+    id: "sol-jito",
+    source: "sol",
+    target: "jito_sol",
     animated: true,
     style: { stroke: "#017AFD" },
+    label: "Stake LST",
+    labelStyle: { fill: "#ffffff", fontWeight: "500", fontSize: 12 },
+    labelBgStyle: { fill: "rgba(1, 122, 253, 0.2)" },
   },
   {
-    id: "deposit-jupiter",
-    source: "deposit",
-    target: "jupiter",
+    id: "sol-jup",
+    source: "sol",
+    target: "jup_sol",
     animated: true,
     style: { stroke: "#017AFD" },
+    label: "Stake LST",
+    labelStyle: { fill: "#ffffff", fontWeight: "500", fontSize: 12 },
+    labelBgStyle: { fill: "rgba(1, 122, 253, 0.2)" },
   },
   {
-    id: "sanctum-conditional",
-    source: "sanctum",
-    target: "conditional",
+    id: "jito-kamino",
+    source: "jito_sol",
+    target: "kamino",
     animated: true,
     style: { stroke: "#51D6FF" },
+    label: "Lend",
+    labelStyle: { fill: "#ffffff", fontWeight: "500", fontSize: 12 },
+    labelBgStyle: { fill: "rgba(81, 214, 255, 0.2)" },
   },
   {
-    id: "jupiter-conditional",
-    source: "jupiter",
-    target: "conditional",
+    id: "jup-kamino",
+    source: "jup_sol",
+    target: "kamino",
     animated: true,
     style: { stroke: "#51D6FF" },
+    label: "Lend",
+    labelStyle: { fill: "#ffffff", fontWeight: "500", fontSize: 12 },
+    labelBgStyle: { fill: "rgba(81, 214, 255, 0.2)" },
   },
   {
-    id: "conditional-yield",
-    source: "conditional",
-    target: "yield",
+    id: "kamino-usdc",
+    source: "kamino",
+    target: "usdc",
+    animated: true,
+    style: { stroke: "#51D6FF" },
+    label: "Borrow",
+    labelStyle: {
+      fill: "#ffffff",
+      fontWeight: "500",
+      fontSize: 12,
+    },
+    labelBgStyle: { fill: "rgba(81, 214, 255, 0.2)" },
+  },
+  {
+    id: "usdc-drift",
+    source: "usdc",
+    target: "drift",
     animated: true,
     style: { stroke: "#017AFD" },
   },
@@ -207,15 +227,15 @@ export default function StrategyFlowDemo() {
 
   return (
     <div className="rounded-2xl border border-white/10 overflow-hidden bg-black/80">
-      <div className="w-full h-[600px]">
+      <div className="w-full h-[500px]">
         <ReactFlow
           nodes={nodes}
           edges={edges}
           nodeTypes={nodeTypes}
           fitView
           fitViewOptions={{ padding: 0.2 }}
-          panOnScroll={false}
-          zoomOnScroll={false}
+          panOnScroll={true}
+          zoomOnScroll={true}
           preventScrolling={false}
         >
           <Background
