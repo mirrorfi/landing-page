@@ -228,15 +228,15 @@ export default function StrategyFlowDemo() {
 
   return (
     <div className="rounded-2xl border border-white/10 overflow-hidden bg-black/80">
-      <div className="w-full h-[500px]">
+      <div className="w-full h-[500px] [&_.react-flow]:pointer-events-none [&_.react-flow__node]:pointer-events-auto [&_.react-flow__controls]:pointer-events-auto [&_.react-flow-slider-wrapper]:pointer-events-auto">
         <ReactFlow
           nodes={nodes}
           edges={edges}
           nodeTypes={nodeTypes}
           fitView
           fitViewOptions={{ padding: 0.2 }}
-          panOnScroll={true}
-          zoomOnScroll={true}
+          panOnScroll={false}
+          zoomOnScroll={false}
           preventScrolling={false}
         >
           <Background
