@@ -27,25 +27,18 @@ function NewsletterForm() {
       onSubmit={(e) => e.preventDefault()}
       className="flex flex-col sm:flex-row gap-3"
     >
-      <input
-        type="email"
-        placeholder="Enter your email"
-        className={cn(
-          "px-4 py-2 bg-white/5 border border-white/10 rounded-lg",
-          "text-white placeholder:text-white/40",
-          "focus:outline-none focus:ring-2 focus:ring-mirrorfi-blue/50",
-          "font-univa"
-        )}
-      />
       <button
         type="submit"
         className={cn(
-          "px-6 py-2 bg-gradient-to-r from-mirrorfi-blue to-mirrorfi-cyan",
+          "px-6 py-2 bg-gradient-to-r from-mirrorfi-blue to-mirrorfi-cyan cursor-pointer",
           "text-white font-medium rounded-lg",
           "hover:shadow-[0_0_20px_rgba(1,122,253,0.3)]",
           "transition-shadow duration-300",
           "font-satoshi"
         )}
+        onClick={() => {
+          window.open("https://tally.so/r/wakxBZ", "_blank");
+        }}
       >
         Join Waitlist
       </button>

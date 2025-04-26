@@ -234,7 +234,12 @@ export default function HeroGeometric({
           initial="hidden"
           animate="visible"
         >
-          <ShimmerButton className="mx-auto">Join Waitlist</ShimmerButton>
+          <ShimmerButton
+            className="mx-auto"
+            onClick={() => window.open("https://tally.so/r/wakxBZ", "_blank")}
+          >
+            Join Waitlist
+          </ShimmerButton>
         </motion.div>
       </div>
 

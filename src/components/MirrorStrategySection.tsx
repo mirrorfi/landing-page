@@ -66,11 +66,7 @@ export default function MirrorStrategySection() {
             initial="hidden"
             animate="visible"
             className="mt-12 text-center"
-          >
-            <button className="px-8 py-3 text-lg font-satoshi font-medium text-white bg-gradient-to-r from-mirrorfi-blue to-mirrorfi-cyan rounded-full hover:scale-105 transition-transform duration-200 shadow-[0_8px_32px_0_rgba(1,122,253,0.3)]">
-              Try Beta
-            </button>
-          </motion.div>
+          ></motion.div>
         </div>
       </section>
     </motion.div>
