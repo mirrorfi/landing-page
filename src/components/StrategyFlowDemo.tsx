@@ -16,7 +16,8 @@ import {
 import { cn } from "@/lib/utils";
 import "@xyflow/react/dist/style.css";
 import { ZoomSlider } from "./zoom-slider";
-import { Coins, Database, Wallet, CreditCard, BarChart } from "lucide-react";
+import { Coins, Database, Wallet, BarChart } from "lucide-react";
+import { TokenIcon } from "@web3icons/react";
 
 interface CustomNodeData extends Record<string, unknown> {
   label: string;
@@ -33,15 +34,15 @@ function CustomNode({ data }: { data: CustomNodeData }) {
   const getNodeIcon = () => {
     switch (data.label) {
       case "SOL":
-        return <Coins size={24} className="text-green-400" />;
+        return <TokenIcon symbol="sol" variant="branded" size={24} />;
       case "JITO SOL":
         return <Coins size={24} className="text-green-400" />;
       case "JUP SOL":
-        return <Coins size={24} className="text-green-400" />;
+        return <TokenIcon symbol="jup" variant="branded" size={24} />;
       case "Kamino":
         return <Database size={24} className="text-green-400" />;
       case "USDC":
-        return <CreditCard size={24} className="text-green-400" />;
+        return <TokenIcon symbol="usdc" variant="branded" size={24} />;
       case "Drift Vault":
         return <Wallet size={24} className="text-green-400" />;
       default:
@@ -166,7 +167,7 @@ const initialEdges: Edge[] = [
     style: { stroke: "#017AFD" },
     label: "Stake LST",
     labelStyle: { fill: "#ffffff", fontWeight: "500", fontSize: 12 },
-    labelBgStyle: { fill: "rgba(1, 122, 253, 0.2)" },
+    labelBgStyle: { fill: "transparent" },
   },
   {
     id: "sol-jup",
@@ -176,7 +177,7 @@ const initialEdges: Edge[] = [
     style: { stroke: "#017AFD" },
     label: "Stake LST",
     labelStyle: { fill: "#ffffff", fontWeight: "500", fontSize: 12 },
-    labelBgStyle: { fill: "rgba(1, 122, 253, 0.2)" },
+    labelBgStyle: { fill: "transparent" },
   },
   {
     id: "jito-kamino",
@@ -186,7 +187,7 @@ const initialEdges: Edge[] = [
     style: { stroke: "#51D6FF" },
     label: "Lend",
     labelStyle: { fill: "#ffffff", fontWeight: "500", fontSize: 12 },
-    labelBgStyle: { fill: "rgba(81, 214, 255, 0.2)" },
+    labelBgStyle: { fill: "transparent" },
   },
   {
     id: "jup-kamino",
@@ -196,7 +197,7 @@ const initialEdges: Edge[] = [
     style: { stroke: "#51D6FF" },
     label: "Lend",
     labelStyle: { fill: "#ffffff", fontWeight: "500", fontSize: 12 },
-    labelBgStyle: { fill: "rgba(81, 214, 255, 0.2)" },
+    labelBgStyle: { fill: "transparent" },
   },
   {
     id: "kamino-usdc",
@@ -210,7 +211,7 @@ const initialEdges: Edge[] = [
       fontWeight: "500",
       fontSize: 12,
     },
-    labelBgStyle: { fill: "rgba(81, 214, 255, 0.2)" },
+    labelBgStyle: { fill: "transparent" },
   },
   {
     id: "usdc-drift",
