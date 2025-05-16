@@ -16,8 +16,9 @@ import {
 import { cn } from "@/lib/utils";
 import "@xyflow/react/dist/style.css";
 import { ZoomSlider } from "./zoom-slider";
-import { Coins, Database, Wallet, BarChart } from "lucide-react";
+import { BarChart } from "lucide-react";
 import { TokenIcon } from "@web3icons/react";
+import Image from "next/image";
 
 interface CustomNodeData extends Record<string, unknown> {
   label: string;
@@ -36,15 +37,21 @@ function CustomNode({ data }: { data: CustomNodeData }) {
       case "SOL":
         return <TokenIcon symbol="sol" variant="branded" size={24} />;
       case "JITO SOL":
-        return <Coins size={24} className="text-green-400" />;
+        return (
+          <Image src={"/jitoSOL-logo.png"} alt="Jito" width={24} height={24} />
+        );
       case "JUP SOL":
         return <TokenIcon symbol="jup" variant="branded" size={24} />;
       case "Kamino":
-        return <Database size={24} className="text-green-400" />;
+        return (
+          <Image src={"/kamino-logo.png"} alt="Kamino" width={24} height={24} />
+        );
       case "USDC":
         return <TokenIcon symbol="usdc" variant="branded" size={24} />;
       case "Drift Vault":
-        return <Wallet size={24} className="text-green-400" />;
+        return (
+          <Image src={"/drift-logo.png"} alt="Drift" width={20} height={20} />
+        );
       default:
         return <BarChart size={24} className="text-green-400" />;
     }
