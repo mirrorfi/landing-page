@@ -37,10 +37,10 @@ function NewsletterForm() {
           "font-satoshi"
         )}
         onClick={() => {
-          window.open("https://tally.so/r/wakxBZ", "_blank");
+          window.open("https://app.mirrorfi.xyz", "_blank");
         }}
       >
-        Join Waitlist
+        Get Started
       </button>
     </form>
   );

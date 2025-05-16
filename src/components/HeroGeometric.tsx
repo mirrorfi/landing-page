@@ -236,9 +236,9 @@ export default function HeroGeometric({
         >
           <ShimmerButton
             className="mx-auto"
-            onClick={() => window.open("https://tally.so/r/wakxBZ", "_blank")}
+            onClick={() => window.open("https://app.mirrorfi.xyz", "_blank")}
           >
-            Join Waitlist
+            Get Started
           </ShimmerButton>
         </motion.div>
       </div>
