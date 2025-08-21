@@ -236,9 +236,9 @@ export default function HeroGeometric({
         >
           <ShimmerButton
             className="mx-auto"
-            onClick={() => window.open("https://app.mirrorfi.xyz", "_blank")}
+            onClick={() => {}}
           >
-            Get Started
+            V1 Coming Soon
           </ShimmerButton>
         </motion.div>
       </div>
